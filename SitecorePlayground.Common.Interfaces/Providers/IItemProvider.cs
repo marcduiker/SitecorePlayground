@@ -14,7 +14,7 @@ namespace SitecorePlayground.Common.Interfaces.Providers
         /// Retrieves a Sitecore item by their Id.
         /// </summary>
         /// <param name="itemId">The item <see cref="ID"/>.</param>
-        /// <returns>An ItemAdapter</returns>
+        /// <returns>A Sitecore Item</returns>
         Item GetItem(ID itemId);
 
         /// <summary>
