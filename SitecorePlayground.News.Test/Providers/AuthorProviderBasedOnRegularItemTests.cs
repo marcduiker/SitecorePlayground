@@ -22,17 +22,17 @@ namespace SitecorePlayground.News.Test.Providers
     [Category("Requires Sitecore.FakeDb and Sitecore license")]
     public class AuthorProviderBasedOnRegularItemTests
     {
-        [TestAttribute]
-        public void GetAuthor_ValidAuthorRegularItem_ReturnsAuthorObject()
+        [Test]
+        public void GetAuthor_WithValidAuthorBasedOnRegularItem_ReturnsAuthorObject()
         {
             using (var fakeDb = new Db())
             {
                 // Arrange
-                ID authorId = new ID(Guid.NewGuid());
-                ID templateId = new ID(AuthorTemplate.TemplateId);
+                var authorId = new ID(Guid.NewGuid());
+                var templateId = new ID(AuthorTemplate.TemplateId);
                 DbItem fakeDbItem = GetFakeAuthorItem("John West", "Sitecore", authorId, templateId);
                 fakeDb.Add(fakeDbItem);
-                Item fakeAuthorItem = fakeDb.GetItem(authorId);
+                var fakeAuthorItem = fakeDb.GetItem(authorId);
                 var itemProviderMock = GetItemProviderMock(fakeAuthorItem);
                 var authorProvider = new AuthorProviderBasedOnRegularItem(itemProviderMock.Object);
 

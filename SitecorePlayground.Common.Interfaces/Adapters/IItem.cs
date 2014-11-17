@@ -27,14 +27,19 @@ namespace SitecorePlayground.Common.Interfaces.Adapters
         string DisplayName { get; }
 
         /// <summary>
+        /// Getter for the Item ID.
+        /// </summary>
+        ID Id { get; }
+
+        /// <summary>
+        /// Getter for the actual Sitecore <see cref="Item"/>.
+        /// </summary>
+        Item InnerItem { get; }
+
+        /// <summary>
         /// Getter for the Item Template ID.
         /// </summary>
         ID TemplateId { get; }
-
-        /// <summary>
-        /// Getter/setter for the actual Sitecore <see cref="Item"/>.
-        /// </summary>
-        Item OriginalItem { get; }
 
         /// <summary>
         /// Getter for returning the string value for a field.

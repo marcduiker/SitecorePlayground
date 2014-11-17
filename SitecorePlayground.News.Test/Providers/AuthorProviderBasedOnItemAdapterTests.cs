@@ -20,13 +20,13 @@ namespace SitecorePlayground.News.Test.Providers
     [TestFixture]
     public class AuthorProviderBasedOnItemAdapterTests
     {
-        [TestAttribute]
-        public void GetAuthor_ValidAuthorItemAdapter_ReturnsAuthorObject()
+        [Test]
+        public void GetAuthor_WithValidAuthorBasedOnItemAdapter_ReturnsAuthorObject()
         {
             // Arrange
             var authorItemId = new ID(Guid.NewGuid());
-            var authorItemMock = GetAuthorItemMock("John West", "Sitecore");
-            var itemProviderMock = this.GetItemProviderMock(authorItemMock.Object);
+            var authorItemMock = GetAuthorItemMock(authorItemId, "John West", "Sitecore");
+            var itemProviderMock = GetItemProviderMock(authorItemMock.Object);
             var authorProvider = new AuthorProviderBasedOnItemAdapter(itemProviderMock.Object);
 
             // Act
@@ -45,10 +45,11 @@ namespace SitecorePlayground.News.Test.Providers
             return itemProviderMock;
         }
 
-        private static Mock<IItem> GetAuthorItemMock(string authorName, string companyName)
+        private static Mock<IItem> GetAuthorItemMock(ID itemId, string authorName, string companyName)
         {
             var itemMock = new Mock<IItem>();
             itemMock.SetupGet(mock => mock.TemplateId).Returns(new ID(AuthorTemplate.TemplateId));
+            itemMock.SetupGet(mock => mock.Id).Returns(itemId);
             itemMock.SetupGet(mock => mock[AuthorTemplate.Fields.AuthorName]).Returns(authorName);
             itemMock.SetupGet(mock => mock[AuthorTemplate.Fields.AuthorCompany]).Returns(companyName);
 

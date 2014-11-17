@@ -18,14 +18,14 @@ namespace SitecorePlayground.Common.Adapters
         {
             Assert.ArgumentNotNull(item, "item");
 
-            this.OriginalItem = item;
+            this.InnerItem = item;
         }
 
         public ItemAxes Axes
         {
             get
             {
-                return this.OriginalItem.Axes;
+                return InnerItem.Axes;
             }
         }
 
@@ -33,7 +33,7 @@ namespace SitecorePlayground.Common.Adapters
         {
             get
             {
-                return this.OriginalItem.Template.BaseTemplates.Select(template => template.ID);
+                return InnerItem.Template.BaseTemplates.Select(template => template.ID);
             }
         }
 
@@ -41,29 +41,37 @@ namespace SitecorePlayground.Common.Adapters
         {
             get
             {
-                return this.OriginalItem.DisplayName;
+                return InnerItem.DisplayName;
             }
+        }
+
+        public ID Id
+        {
+            get
+            {
+                return InnerItem.ID;
+            }
+        }
+
+        public Item InnerItem
+        {
+            get;
+            private set;
         }
 
         public ID TemplateId
         {
             get
             {
-                return this.OriginalItem.TemplateID;
+                return InnerItem.TemplateID;
             }
-        }
-
-        public Item OriginalItem
-        {
-            get;
-            private set;
         }
 
         public string this[string fieldName]
         {
             get
             {
-                return this.OriginalItem.Fields[fieldName].Value;
+                return InnerItem.Fields[fieldName].Value;
             }
         }
     }
