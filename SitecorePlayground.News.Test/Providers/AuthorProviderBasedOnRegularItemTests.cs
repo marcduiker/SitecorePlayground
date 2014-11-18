@@ -30,7 +30,7 @@ namespace SitecorePlayground.News.Test.Providers
                 // Arrange
                 var authorId = new ID(Guid.NewGuid());
                 var templateId = new ID(AuthorTemplate.TemplateId);
-                DbItem fakeDbItem = GetFakeAuthorItem("John West", "Sitecore", authorId, templateId);
+                DbItem fakeDbItem = GetFakeAuthorDbItem("John West", "Sitecore", authorId, templateId);
                 fakeDb.Add(fakeDbItem);
                 var fakeAuthorItem = fakeDb.GetItem(authorId);
                 var itemProviderMock = GetItemProviderMock(fakeAuthorItem);
@@ -44,7 +44,7 @@ namespace SitecorePlayground.News.Test.Providers
             }
         }
 
-        private DbItem GetFakeAuthorItem(string authorName, string authorCompany, ID itemId, ID templateId)
+        private DbItem GetFakeAuthorDbItem(string authorName, string authorCompany, ID itemId, ID templateId)
         {
             return new DbItem(authorName, itemId, templateId)
                        {
