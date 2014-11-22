@@ -48,7 +48,7 @@ namespace SitecorePlayground.News.Providers
         /// </summary>
         private IItem GetAuthorItem(ID authorItemId)
         {
-            return itemProvider.GetItemAdapter(authorItemId);
+            return itemProvider.GetAdaptedItem(authorItemId);
         }
     }
 }
