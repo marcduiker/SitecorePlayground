@@ -39,7 +39,7 @@ namespace SitecorePlayground.News.Test.Providers
         private Mock<IItemProvider> GetItemProviderMock(IItem authorItem)
         {
             var itemProviderMock = new Mock<IItemProvider>();
-            itemProviderMock.Setup(mock => mock.GetAdaptedItem(It.IsAny<ID>()))
+            itemProviderMock.Setup(mock => mock.GetItemAdapter(It.IsAny<ID>()))
                 .Returns(authorItem);
 
             return itemProviderMock;

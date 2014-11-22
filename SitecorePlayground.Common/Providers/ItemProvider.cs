@@ -13,7 +13,7 @@ namespace SitecorePlayground.Common.Providers
             return Sitecore.Context.Database.GetItem(itemId);
         }
 
-        public IItem GetAdaptedItem(ID itemId)
+        public IItem GetItemAdapter(ID itemId)
         {
             var item = GetItem(itemId);
             return item != null ? new ItemAdapter(item) : null;

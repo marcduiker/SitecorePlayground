@@ -18,10 +18,10 @@ namespace SitecorePlayground.Common.Interfaces.Providers
         Item GetItem(ID itemId);
 
         /// <summary>
-        /// Retrieves an adapted item by their Id.
+        /// Retrieves a wrapped item by their Id.
         /// </summary>
         /// <param name="itemId">The item <see cref="ID"/>.</param>
-        /// <returns>An Adapted Item</returns>
-        IItem GetAdaptedItem(ID itemId);
+        /// <returns>An ItemAdapter</returns>
+        IItem GetItemAdapter(ID itemId);
     }
 }
