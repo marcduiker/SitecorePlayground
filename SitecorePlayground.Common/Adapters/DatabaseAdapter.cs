@@ -24,21 +24,21 @@ namespace SitecorePlayground.Common.Adapters
             get { return this.database.Name; }
         }
 
-        public IItem GetItem(ID itemId)
+        public IItemAdapter GetItem(ID itemId)
         {
             Assert.ArgumentNotNull(itemId, "itemId");
 
             return new ItemAdapter(this.database.GetItem(itemId));
         }
 
-        public IItem GetItem(string itemPath)
+        public IItemAdapter GetItem(string itemPath)
         {
             Assert.ArgumentNotNull(itemPath, "itemPath");
 
             return new ItemAdapter(this.database.GetItem(itemPath));
         }
 
-        public IItem SelectSingleItem(string itemQuery)
+        public IItemAdapter SelectSingleItem(string itemQuery)
         {
             Assert.ArgumentNotNull(itemQuery, "itemQuery");
 

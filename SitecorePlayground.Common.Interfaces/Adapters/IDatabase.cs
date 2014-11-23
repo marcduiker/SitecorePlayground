@@ -17,21 +17,21 @@ namespace SitecorePlayground.Common.Interfaces.Adapters
         /// Method to return an wrapped Item for the given item ID.
         /// </summary>
         /// <param name="itemId"></param>
-        /// <returns><see cref="IItem"/></returns>
-        IItem GetItem(ID itemId);
+        /// <returns><see cref="IItemAdapter"/></returns>
+        IItemAdapter GetItem(ID itemId);
 
         /// <summary>
         /// Method to return a wrapped Item for the given item path.
         /// </summary>
         /// <param name="itemPath"></param>
-        /// <returns><see cref="IItem"/></returns>
-        IItem GetItem(string itemPath);
+        /// <returns><see cref="IItemAdapter"/></returns>
+        IItemAdapter GetItem(string itemPath);
 
         /// <summary>
         /// Method to return a wrapped Item for the given query.
         /// </summary>
         /// <param name="itemQuery"></param>
-        /// <returns><see cref="IItem"/></returns>
-        IItem SelectSingleItem(string itemQuery);
+        /// <returns><see cref="IItemAdapter"/></returns>
+        IItemAdapter SelectSingleItem(string itemQuery);
     }
 }

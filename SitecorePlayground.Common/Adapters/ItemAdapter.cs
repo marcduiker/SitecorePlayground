@@ -12,7 +12,7 @@ namespace SitecorePlayground.Common.Adapters
     /// <summary>
     /// Wrapper class for the Sitecore <see cref="Item"/>.
     /// </summary>
-    public class ItemAdapter : IItem
+    public class ItemAdapter : IItemAdapter
     {
         public ItemAdapter(Item item)
         {
@@ -23,34 +23,22 @@ namespace SitecorePlayground.Common.Adapters
 
         public ItemAxes Axes
         {
-            get
-            {
-                return InnerItem.Axes;
-            }
+            get { return InnerItem.Axes; }
         }
 
         public IEnumerable<ID> BaseTemplateIds
         {
-            get
-            {
-                return InnerItem.Template.BaseTemplates.Select(template => template.ID);
-            }
+            get { return InnerItem.Template.BaseTemplates.Select(template => template.ID); }
         }
 
         public string DisplayName
         {
-            get
-            {
-                return InnerItem.DisplayName;
-            }
+            get { return InnerItem.DisplayName; }
         }
 
         public ID Id
         {
-            get
-            {
-                return InnerItem.ID;
-            }
+            get { return InnerItem.ID; }
         }
 
         public Item InnerItem
@@ -61,18 +49,12 @@ namespace SitecorePlayground.Common.Adapters
 
         public ID TemplateId
         {
-            get
-            {
-                return InnerItem.TemplateID;
-            }
+            get { return InnerItem.TemplateID; }
         }
 
         public string this[string fieldName]
         {
-            get
-            {
-                return InnerItem.Fields[fieldName].Value;
-            }
+            get { return InnerItem.Fields[fieldName].Value; }
         }
     }
 }

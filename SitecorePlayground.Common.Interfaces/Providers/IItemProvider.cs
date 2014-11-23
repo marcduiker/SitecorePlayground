@@ -22,6 +22,6 @@ namespace SitecorePlayground.Common.Interfaces.Providers
         /// </summary>
         /// <param name="itemId">The item <see cref="ID"/>.</param>
         /// <returns>An ItemAdapter</returns>
-        IItem GetItemAdapter(ID itemId);
+        IItemAdapter GetItemAdapter(ID itemId);
     }
 }

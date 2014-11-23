@@ -46,7 +46,7 @@ namespace SitecorePlayground.News.Providers
         /// Method to return a type that implements the IItem interface (ItemAdapter)
         /// from the ItemProvider.
         /// </summary>
-        private IItem GetAuthorItem(ID authorItemId)
+        private IItemAdapter GetAuthorItem(ID authorItemId)
         {
             return itemProvider.GetItemAdapter(authorItemId);
         }

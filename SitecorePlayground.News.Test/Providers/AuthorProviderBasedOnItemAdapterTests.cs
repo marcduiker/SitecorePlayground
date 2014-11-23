@@ -36,7 +36,7 @@ namespace SitecorePlayground.News.Test.Providers
             Assert.AreEqual("John West", result.Name);
         }
 
-        private Mock<IItemProvider> GetItemProviderMock(IItem authorItem)
+        private Mock<IItemProvider> GetItemProviderMock(IItemAdapter authorItem)
         {
             var itemProviderMock = new Mock<IItemProvider>();
             itemProviderMock.Setup(mock => mock.GetItemAdapter(It.IsAny<ID>()))
@@ -45,9 +45,9 @@ namespace SitecorePlayground.News.Test.Providers
             return itemProviderMock;
         }
 
-        private static Mock<IItem> GetAuthorItemMock(ID itemId, string authorName, string companyName)
+        private static Mock<IItemAdapter> GetAuthorItemMock(ID itemId, string authorName, string companyName)
         {
-            var itemMock = new Mock<IItem>();
+            var itemMock = new Mock<IItemAdapter>();
             itemMock.SetupGet(mock => mock.TemplateId).Returns(new ID(AuthorTemplate.TemplateId));
             itemMock.SetupGet(mock => mock.Id).Returns(itemId);
             itemMock.SetupGet(mock => mock[AuthorTemplate.Fields.AuthorName]).Returns(authorName);

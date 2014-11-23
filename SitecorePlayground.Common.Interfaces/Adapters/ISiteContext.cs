@@ -21,7 +21,7 @@ namespace SitecorePlayground.Common.Interfaces.Adapters
         /// <summary>
         /// Getter for the wrapped RootItem of the site.
         /// </summary>
-        IItem RootItem { get; }
+        IItemAdapter RootItem { get; }
 
         /// <summary>
         /// Getter for the RootPath of the site.
@@ -31,7 +31,7 @@ namespace SitecorePlayground.Common.Interfaces.Adapters
         /// <summary>
         /// Getter for the wrapped StartItem of the site.
         /// </summary>
-        IItem StartItem { get; }
+        IItemAdapter StartItem { get; }
 
         /// <summary>
         /// Getter for the StartPath of the site.

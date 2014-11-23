@@ -32,7 +32,7 @@ namespace SitecorePlayground.News.Providers
                             });
         }
 
-        protected virtual IEnumerable<IItem> GetNewsArticleItems()
+        protected virtual IEnumerable<IItemAdapter> GetNewsArticleItems()
         {
             var newsFolderChildren = Sitecore.Context.Database.GetItem(NewsArticleTemplate.TemplateId).Children;
 
