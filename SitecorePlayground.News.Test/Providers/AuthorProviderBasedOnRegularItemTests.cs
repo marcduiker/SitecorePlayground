@@ -28,8 +28,8 @@ namespace SitecorePlayground.News.Test.Providers
             using (var fakeDb = new Db())
             {
                 // Arrange
-                var authorId = new ID(Guid.NewGuid());
-                var templateId = new ID(AuthorTemplate.TemplateId);
+                var authorId = ID.NewID;
+                var templateId = ID.Parse(AuthorTemplate.TemplateId);
                 DbItem fakeDbItem = GetFakeAuthorDbItem("John West", "Sitecore", authorId, templateId);
                 fakeDb.Add(fakeDbItem);
                 var fakeAuthorItem = fakeDb.GetItem(authorId);
