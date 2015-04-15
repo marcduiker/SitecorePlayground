@@ -35,7 +35,7 @@ namespace SitecorePlayground.Common.Adapters
             get { return this.siteContext.Name; }
         }
 
-        public IItemAdapter RootItem
+        public IItem RootItem
         {
             get { return this.databaseAdapter.GetItem(this.RootPath); }
         }
@@ -45,7 +45,7 @@ namespace SitecorePlayground.Common.Adapters
             get { return this.siteContext.RootPath; }
         }
 
-        public IItemAdapter StartItem
+        public IItem StartItem
         {
             get { return this.databaseAdapter.GetItem(this.StartPath); }
         }

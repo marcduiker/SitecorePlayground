@@ -17,7 +17,7 @@ namespace SitecorePlayground.Common.Interfaces.Adapters
         /// <summary>
         /// Getter for the current wrapped Item.
         /// </summary>
-        IItemAdapter CurrentItem { get; }
+        IItem CurrentItem { get; }
 
         /// <summary>
         /// Getter for the wrapped Datebase.
@@ -27,12 +27,12 @@ namespace SitecorePlayground.Common.Interfaces.Adapters
         /// <summary>
         /// Getter for the wrapped datasource Item.
         /// </summary>
-        IItemAdapter DatasourceItem { get; }
+        IItem DatasourceItem { get; }
 
         /// <summary>
         /// Getter for the wrapped homepage Item.
         /// </summary>
-        IItemAdapter HomepageItem { get; }
+        IItem HomepageItem { get; }
 
         /// <summary>
         /// Getter to determine if the context is in PageEditor mode.

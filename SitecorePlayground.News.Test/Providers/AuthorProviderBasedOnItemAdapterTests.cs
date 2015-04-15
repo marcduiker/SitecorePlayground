@@ -30,13 +30,13 @@ namespace SitecorePlayground.News.Test.Providers
             var authorProvider = new AuthorProviderBasedOnItemAdapter(itemProviderMock.Object);
 
             // Act
-            Author result = authorProvider.GetAuthor(authorItemId);
+            Models.Author result = authorProvider.GetAuthor(authorItemId);
 
             // Assert
             Assert.AreEqual("John West", result.Name);
         }
 
-        private Mock<IItemProvider> GetItemProviderMock(IItemAdapter authorItem)
+        private Mock<IItemProvider> GetItemProviderMock(IItem authorItem)
         {
             var itemProviderMock = new Mock<IItemProvider>();
             itemProviderMock.Setup(mock => mock.GetItemAdapter(It.IsAny<ID>()))
@@ -45,13 +45,13 @@ namespace SitecorePlayground.News.Test.Providers
             return itemProviderMock;
         }
 
-        private static Mock<IItemAdapter> GetAuthorItemMock(ID itemId, string authorName, string companyName)
+        private static Mock<IItem> GetAuthorItemMock(ID itemId, string authorName, string companyName)
         {
-            var itemMock = new Mock<IItemAdapter>();
-            itemMock.SetupGet(mock => mock.TemplateId).Returns(new ID(AuthorTemplate.TemplateId));
+            var itemMock = new Mock<IItem>();
+            itemMock.SetupGet(mock => mock.TemplateId).Returns(new ID(Templates.Author.TemplateId));
             itemMock.SetupGet(mock => mock.Id).Returns(itemId);
-            itemMock.SetupGet(mock => mock[AuthorTemplate.Fields.AuthorName]).Returns(authorName);
-            itemMock.SetupGet(mock => mock[AuthorTemplate.Fields.AuthorCompany]).Returns(companyName);
+            itemMock.SetupGet(mock => mock[Templates.Author.Fields.AuthorName]).Returns(authorName);
+            itemMock.SetupGet(mock => mock[Templates.Author.Fields.AuthorCompany]).Returns(companyName);
 
             return itemMock;
         }

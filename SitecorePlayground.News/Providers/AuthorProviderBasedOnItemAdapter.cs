@@ -37,8 +37,8 @@ namespace SitecorePlayground.News.Providers
 
             return new Author
                        {
-                           Company = authorItem[Templates.AuthorTemplate.Fields.AuthorCompany],
-                           Name = authorItem[Templates.AuthorTemplate.Fields.AuthorName]
+                           Company = authorItem[Templates.Author.Fields.AuthorCompany],
+                           Name = authorItem[Templates.Author.Fields.AuthorName]
                        };
         }
 
@@ -46,7 +46,7 @@ namespace SitecorePlayground.News.Providers
         /// Method to return a type that implements the IItem interface (ItemAdapter)
         /// from the ItemProvider.
         /// </summary>
-        private IItemAdapter GetAuthorItem(ID authorItemId)
+        private IItem GetAuthorItem(ID authorItemId)
         {
             return itemProvider.GetItemAdapter(authorItemId);
         }

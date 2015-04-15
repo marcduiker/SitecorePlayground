@@ -37,8 +37,8 @@ namespace SitecorePlayground.News.Providers
 
             return new Author
             {
-                Company = authorItem[Templates.AuthorTemplate.Fields.AuthorCompany],
-                Name = authorItem[Templates.AuthorTemplate.Fields.AuthorName]
+                Company = authorItem[Templates.Author.Fields.AuthorCompany],
+                Name = authorItem[Templates.Author.Fields.AuthorName]
             };
         }
 

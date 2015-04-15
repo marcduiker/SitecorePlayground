@@ -14,7 +14,7 @@ namespace SitecorePlayground.Common.Adapters
             get { return Sitecore.Context.Language; }
         }
 
-        public IItemAdapter CurrentItem
+        public IItem CurrentItem
         {
             get { return new ItemAdapter(Sitecore.Context.Item); }
         }
@@ -24,12 +24,12 @@ namespace SitecorePlayground.Common.Adapters
             get { return new DatabaseAdapter(Sitecore.Context.Database); }
         }
 
-        public IItemAdapter DatasourceItem
+        public IItem DatasourceItem
         {
             get { throw new NotImplementedException(); }
         }
 
-        public IItemAdapter HomepageItem
+        public IItem HomepageItem
         {
             get { return this.Site.StartItem; }
         }

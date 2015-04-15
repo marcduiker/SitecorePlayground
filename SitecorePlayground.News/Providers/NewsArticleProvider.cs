@@ -5,8 +5,7 @@ using Sitecore.Data.Items;
 
 using SitecorePlayground.Common.Adapters;
 using SitecorePlayground.Common.Interfaces.Adapters;
-using SitecorePlayground.News.Models;
-using SitecorePlayground.News.Templates;
+using SitecorePlayground.News;
 
 namespace SitecorePlayground.News.Providers
 {
@@ -19,22 +18,22 @@ namespace SitecorePlayground.News.Providers
             this.authorProvider = authorProvider;
         }
 
-        public IEnumerable<NewsArticle> GetNewsArticles()
+        public IEnumerable<Models.NewsArticle> GetNewsArticles()
         {
             return this.GetNewsArticleItems()
                     .Select(
                         newsArticleItem =>
-                        new NewsArticle
+                        new Models.NewsArticle
                             {
-                                Author = authorProvider.GetAuthor(newsArticleItem[NewsArticleTemplate.Fields.Author]),
-                                Introduction = newsArticleItem[NewsArticleTemplate.Fields.Introduction],
-                                Title = newsArticleItem[NewsArticleTemplate.Fields.Title]
+                                Author = authorProvider.GetAuthor(newsArticleItem[Templates.NewsArticle.Fields.Author]),
+                                Introduction = newsArticleItem[Templates.NewsArticle.Fields.Introduction],
+                                Title = newsArticleItem[Templates.NewsArticle.Fields.Title]
                             });
         }
 
-        protected virtual IEnumerable<IItemAdapter> GetNewsArticleItems()
+        protected virtual IEnumerable<IItem> GetNewsArticleItems()
         {
-            var newsFolderChildren = Sitecore.Context.Database.GetItem(NewsArticleTemplate.TemplateId).Children;
+            var newsFolderChildren = Sitecore.Context.Database.GetItem(Templates.NewsArticle.TemplateId).Children;
 
             return newsFolderChildren.Any(ItemIsNewsArticleTemplate) ?
                 newsFolderChildren.Where(ItemIsNewsArticleTemplate).Select(item => new ItemAdapter(item))
@@ -43,7 +42,7 @@ namespace SitecorePlayground.News.Providers
 
         private static bool ItemIsNewsArticleTemplate(Item item)
         {
-            return item.TemplateID.ToString() == NewsArticleTemplate.TemplateId;
+            return item.TemplateID.ToString() == Templates.NewsArticle.TemplateId;
         }
     }
 }

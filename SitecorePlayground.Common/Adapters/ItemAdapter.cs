@@ -12,7 +12,7 @@ namespace SitecorePlayground.Common.Adapters
     /// <summary>
     /// Wrapper class for the Sitecore <see cref="Item"/>.
     /// </summary>
-    public class ItemAdapter : IItemAdapter
+    public class ItemAdapter : IItem
     {
         public ItemAdapter(Item item)
         {

@@ -29,7 +29,7 @@ namespace SitecorePlayground.News.Test.Providers
             {
                 // Arrange
                 var authorId = ID.NewID;
-                var templateId = ID.Parse(AuthorTemplate.TemplateId);
+                var templateId = ID.Parse(Templates.Author.TemplateId);
                 DbItem fakeDbItem = GetFakeAuthorDbItem("John West", "Sitecore", authorId, templateId);
                 fakeDb.Add(fakeDbItem);
                 var fakeAuthorItem = fakeDb.GetItem(authorId);
@@ -37,7 +37,7 @@ namespace SitecorePlayground.News.Test.Providers
                 var authorProvider = new AuthorProviderBasedOnRegularItem(itemProviderMock.Object);
 
                 // Act
-                Author result = authorProvider.GetAuthor(authorId);
+                Models.Author result = authorProvider.GetAuthor(authorId);
 
                 // Assert
                 Assert.AreEqual("John West", result.Name);
@@ -48,8 +48,8 @@ namespace SitecorePlayground.News.Test.Providers
         {
             return new DbItem(authorName, itemId, templateId)
                        {
-                           { AuthorTemplate.Fields.AuthorName, authorName }, 
-                           { AuthorTemplate.Fields.AuthorCompany, authorCompany }
+                           { Templates.Author.Fields.AuthorName, authorName }, 
+                           { Templates.Author.Fields.AuthorCompany, authorCompany }
                        };
         }
 

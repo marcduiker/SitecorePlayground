@@ -9,7 +9,7 @@ namespace SitecorePlayground.Common.Interfaces.Adapters
     /// Interface for the ItemAdapter  to abstract frequently used <see cref="Item"/> properties 
     /// in order to write better (unit) testable code.
     /// </summary>
-    public interface IItemAdapter
+    public interface IItem
     {
         /// <summary>
         /// Getter for the ItemAxes of the Item.

@@ -49,7 +49,7 @@
     <Compile Include="Adapters\IContext.cs" />
     <Compile Include="Adapters\IDatabase.cs" />
     <Compile Include="Adapters\IItem.cs" />
-    <Compile Include="Adapters\ISiteContext.cs" />
+    <Compile Include="Adapters\ISite.cs" />
     <Compile Include="Providers\IItemProvider.cs" />
   </ItemGroup>
   <ItemGroup />

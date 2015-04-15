@@ -1,6 +1,6 @@
 ﻿namespace SitecorePlayground.News.Templates
 {
-    public static class NewsArticleTemplate
+    public static class NewsArticle
     {
         public const string TemplateId = "{A3301F0D-7D15-4372-8240-1278E177DC96}";
 
